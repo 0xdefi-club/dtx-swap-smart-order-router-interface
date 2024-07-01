@@ -1,6 +1,10 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Token } from '@uniswap/sdk-core';
-import { ArbitrumGasData, IL2GasDataProvider, OptimismGasData } from '../../../../providers/v3/gas-data-provider';
+import {
+  ArbitrumGasData,
+  IL2GasDataProvider,
+  OptimismGasData,
+} from '../../../../providers/v3/gas-data-provider';
 import { IV3PoolProvider } from '../../../../providers/v3/pool-provider';
 import { ChainId } from '../../../../util';
 import { V3RouteWithValidQuote } from '../../entities/route-with-valid-quote';
@@ -24,16 +28,24 @@ import { IGasModel, IV3GasModelFactory } from '../gas-model';
  * @class V3HeuristicGasModelFactory
  */
 export declare class V3HeuristicGasModelFactory extends IV3GasModelFactory {
-    constructor();
-    buildGasModel(chainId: ChainId, gasPriceWei: BigNumber, poolProvider: IV3PoolProvider, token: Token, l2GasDataProvider?: IL2GasDataProvider<ArbitrumGasData> | IL2GasDataProvider<OptimismGasData>): Promise<IGasModel<V3RouteWithValidQuote>>;
-    private estimateGas;
-    private getHighestLiquidityNativePool;
-    private getHighestLiquidityUSDPool;
-    /**
-     * To avoid having a call to optimism's L1 security fee contract for every route and amount combination,
-     * we replicate the gas cost accounting here.
-     */
-    private calculateOptimismToL1SecurityFee;
-    private calculateArbitrumToL1SecurityFee;
-    private getL2ToL1GasUsed;
+  constructor();
+  buildGasModel(
+    chainId: ChainId,
+    gasPriceWei: BigNumber,
+    poolProvider: IV3PoolProvider,
+    token: Token,
+    l2GasDataProvider?:
+      | IL2GasDataProvider<ArbitrumGasData>
+      | IL2GasDataProvider<OptimismGasData>
+  ): Promise<IGasModel<V3RouteWithValidQuote>>;
+  private estimateGas;
+  private getHighestLiquidityNativePool;
+  private getHighestLiquidityUSDPool;
+  /**
+   * To avoid having a call to optimism's L1 security fee contract for every route and amount combination,
+   * we replicate the gas cost accounting here.
+   */
+  private calculateOptimismToL1SecurityFee;
+  private calculateArbitrumToL1SecurityFee;
+  private getL2ToL1GasUsed;
 }
