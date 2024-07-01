@@ -41,6 +41,8 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
     'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v2-rinkeby',
   [ChainId.BASE_SEPOLIA]:
     'https://api.studio.thegraph.com/query/64677/0xswap-basetest/version/latest',
+  [ChainId.TAIKO]:
+    'https://taiko-swap-subgraph.dtx.trade/subgraphs/name/DTXswap-v2/167000-subgraph',
 };
 
 const threshold = 0.025;

@@ -2,6 +2,7 @@ import { Token } from '@uniswap/sdk-core';
 import {
   DAI_MAINNET,
   ITokenProvider,
+  TAIKO_TAIKO,
   USDC_MAINNET,
   USDT_MAINNET,
   WBTC_MAINNET,
@@ -40,6 +41,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.POLYGON]: [WMATIC_POLYGON],
     [ChainId.POLYGON_MUMBAI]: [WMATIC_POLYGON_MUMBAI],
     [ChainId.BASE_SEPOLIA]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA]],
+    [ChainId.TAIKO]: [WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO], TAIKO_TAIKO],
   };
 };
 

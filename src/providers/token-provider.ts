@@ -385,6 +385,20 @@ export const DAI_BASE_SEPOLIA = new Token(
   'DAI',
   'Dai stable coin'
 );
+export const USDC_TAIKO = new Token(
+  ChainId.TAIKO,
+  '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b',
+  6,
+  'USDC',
+  'USD//C'
+);
+export const TAIKO_TAIKO = new Token(
+  ChainId.TAIKO,
+  '0xA9d23408b9bA935c230493c40C73824Df71A0975',
+  6,
+  'TAIKO',
+  'taiko'
+);
 
 export class TokenProvider implements ITokenProvider {
   constructor(

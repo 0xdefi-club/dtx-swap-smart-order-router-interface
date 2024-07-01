@@ -1,26 +1,18 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Token } from '@uniswap/sdk-core';
 import { IV2PoolProvider } from '../../../providers/v2/pool-provider';
-import {
-  ArbitrumGasData,
-  IL2GasDataProvider,
-  OptimismGasData,
-} from '../../../providers/v3/gas-data-provider';
+import { ArbitrumGasData, IL2GasDataProvider, OptimismGasData } from '../../../providers/v3/gas-data-provider';
 import { IV3PoolProvider } from '../../../providers/v3/pool-provider';
 import { CurrencyAmount } from '../../../util/amounts';
 import { ChainId } from '../../../util/chains';
-import {
-  RouteWithValidQuote,
-  V2RouteWithValidQuote,
-  V3RouteWithValidQuote,
-} from '../entities/route-with-valid-quote';
+import { RouteWithValidQuote, V2RouteWithValidQuote, V3RouteWithValidQuote } from '../entities/route-with-valid-quote';
 export declare const usdGasTokensByChain: {
-  [chainId in ChainId]?: Token[];
+    [chainId in ChainId]?: Token[];
 };
 export declare type L1ToL2GasCosts = {
-  gasUsedL1: BigNumber;
-  gasCostL1USD: CurrencyAmount;
-  gasCostL1QuoteToken: CurrencyAmount;
+    gasUsedL1: BigNumber;
+    gasCostL1USD: CurrencyAmount;
+    gasCostL1QuoteToken: CurrencyAmount;
 };
 /**
  * Contains functions for generating gas estimates for given routes.
@@ -38,15 +30,13 @@ export declare type L1ToL2GasCosts = {
  * amount that is considered in the algorithm so it is important to minimize the number of
  * long running operations.
  */
-export declare type IGasModel<
-  TRouteWithValidQuote extends RouteWithValidQuote
-> = {
-  estimateGasCost(routeWithValidQuote: TRouteWithValidQuote): {
-    gasEstimate: BigNumber;
-    gasCostInToken: CurrencyAmount;
-    gasCostInUSD: CurrencyAmount;
-  };
-  calculateL1GasFees?(routes: TRouteWithValidQuote[]): Promise<L1ToL2GasCosts>;
+export declare type IGasModel<TRouteWithValidQuote extends RouteWithValidQuote> = {
+    estimateGasCost(routeWithValidQuote: TRouteWithValidQuote): {
+        gasEstimate: BigNumber;
+        gasCostInToken: CurrencyAmount;
+        gasCostInUSD: CurrencyAmount;
+    };
+    calculateL1GasFees?(routes: TRouteWithValidQuote[]): Promise<L1ToL2GasCosts>;
 };
 /**
  * Factory for building gas models that can be used with any route to generate
@@ -60,15 +50,7 @@ export declare type IGasModel<
  * @class IV3GasModelFactory
  */
 export declare abstract class IV3GasModelFactory {
-  abstract buildGasModel(
-    chainId: number,
-    gasPriceWei: BigNumber,
-    poolProvider: IV3PoolProvider,
-    inTermsOfToken: Token,
-    l2GasDataProvider?:
-      | IL2GasDataProvider<OptimismGasData>
-      | IL2GasDataProvider<ArbitrumGasData>
-  ): Promise<IGasModel<V3RouteWithValidQuote>>;
+    abstract buildGasModel(chainId: number, gasPriceWei: BigNumber, poolProvider: IV3PoolProvider, inTermsOfToken: Token, l2GasDataProvider?: IL2GasDataProvider<OptimismGasData> | IL2GasDataProvider<ArbitrumGasData>): Promise<IGasModel<V3RouteWithValidQuote>>;
 }
 /**
  * Factory for building gas models that can be used with any route to generate
@@ -82,10 +64,5 @@ export declare abstract class IV3GasModelFactory {
  * @class IV2GasModelFactory
  */
 export declare abstract class IV2GasModelFactory {
-  abstract buildGasModel(
-    chainId: number,
-    gasPriceWei: BigNumber,
-    poolProvider: IV2PoolProvider,
-    token: Token
-  ): Promise<IGasModel<V2RouteWithValidQuote>>;
+    abstract buildGasModel(chainId: number, gasPriceWei: BigNumber, poolProvider: IV2PoolProvider, token: Token): Promise<IGasModel<V2RouteWithValidQuote>>;
 }

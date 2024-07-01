@@ -12,6 +12,7 @@ export enum ChainId {
   POLYGON = 137,
   POLYGON_MUMBAI = 80001,
   BASE_SEPOLIA = 84532,
+  TAIKO = 167000,
 }
 
 export const V2_SUPPORTED = [
@@ -21,6 +22,7 @@ export const V2_SUPPORTED = [
   ChainId.RINKEBY,
   ChainId.ROPSTEN,
   ChainId.BASE_SEPOLIA,
+  ChainId.TAIKO,
 ];
 
 export const HAS_L1_FEE = [
@@ -28,6 +30,7 @@ export const HAS_L1_FEE = [
   ChainId.OPTIMISTIC_KOVAN,
   ChainId.ARBITRUM_ONE,
   ChainId.ARBITRUM_RINKEBY,
+  ChainId.TAIKO,
 ];
 
 export const ID_TO_CHAIN_ID = (id: number): ChainId => {
@@ -56,6 +59,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.POLYGON_MUMBAI;
     case 84532:
       return ChainId.BASE_SEPOLIA;
+    case 167000:
+      return ChainId.TAIKO;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -75,6 +80,7 @@ export enum ChainName {
   POLYGON = 'polygon-mainnet',
   POLYGON_MUMBAI = 'polygon-mumbai',
   BASE_SEPOLIA = 'base-sepolia',
+  TAIKO = 'taiko',
 }
 
 export enum NativeCurrencyName {
@@ -96,6 +102,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.POLYGON]: NativeCurrencyName.MATIC,
   [ChainId.POLYGON_MUMBAI]: NativeCurrencyName.MATIC,
   [ChainId.BASE_SEPOLIA]: NativeCurrencyName.ETHER,
+  [ChainId.TAIKO]: NativeCurrencyName.ETHER,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -124,6 +131,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.POLYGON_MUMBAI;
     case 84532:
       return ChainName.BASE_SEPOLIA;
+    case 167000:
+      return ChainName.TAIKO;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -160,6 +169,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
     // to do
     case ChainId.BASE_SEPOLIA:
       return process.env.JSON_RPC_PROVIDER_BASE_SEPOLIA!;
+    case ChainId.TAIKO:
+      return process.env.JSON_RPC_PROVIDER_TAIKO!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -246,6 +257,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
   [ChainId.BASE_SEPOLIA]: new Token(
     ChainId.BASE_SEPOLIA,
     '0x6267947C818ff3900F620FC97d590702afB69147',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.TAIKO]: new Token(
+    ChainId.TAIKO,
+    '0xA51894664A773981C6C112C43ce576f315d5b1B6',
     18,
     'WETH',
     'Wrapped Ether'

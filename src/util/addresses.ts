@@ -93,4 +93,11 @@ export const WETH9: {
     'WETH',
     'Wrapped Ether'
   ),
+  [ChainId.TAIKO]: new Token(
+    ChainId.TAIKO,
+    '0xA51894664A773981C6C112C43ce576f315d5b1B6',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
 };
