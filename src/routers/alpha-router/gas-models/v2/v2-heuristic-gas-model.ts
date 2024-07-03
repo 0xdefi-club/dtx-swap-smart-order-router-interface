@@ -245,10 +245,10 @@ export class V2HeuristicGasModelFactory extends IV2GasModelFactory {
       poolsRaw,
       (pool) => pool.reserve0.greaterThan(0) && pool.reserve1.greaterThan(0)
     );
-    console.log(pools, 'pools');
-    console.log(poolAccessor, 'poolAccessor');
-    console.log(poolsRaw, 'poolsRaw');
-    console.log(usdPools, 'usdPools');
+    // console.log(pools, 'pools');
+    // console.log(poolAccessor, 'poolAccessor');
+    // console.log(poolsRaw, 'poolsRaw');
+    // console.log(usdPools, 'usdPools');
 
     if (pools.length == 0) {
       log.error(
