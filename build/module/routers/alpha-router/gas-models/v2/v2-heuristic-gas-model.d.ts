@@ -22,9 +22,14 @@ import { IGasModel, IV2GasModelFactory } from '../gas-model';
  * @class V2HeuristicGasModelFactory
  */
 export declare class V2HeuristicGasModelFactory extends IV2GasModelFactory {
-    constructor();
-    buildGasModel(chainId: ChainId, gasPriceWei: BigNumber, poolProvider: IV2PoolProvider, token: Token): Promise<IGasModel<V2RouteWithValidQuote>>;
-    private estimateGas;
-    private getEthPool;
-    private getHighestLiquidityUSDPool;
+  constructor();
+  buildGasModel(
+    chainId: ChainId,
+    gasPriceWei: BigNumber,
+    poolProvider: IV2PoolProvider,
+    token: Token
+  ): Promise<IGasModel<V2RouteWithValidQuote>>;
+  private estimateGas;
+  private getEthPool;
+  private getHighestLiquidityUSDPool;
 }
