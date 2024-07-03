@@ -1,16 +1,15 @@
 export declare const UNSUPPORTED_TOKENS: {
-  name: string;
-  timestamp: string;
-  version: {
-    major: number;
-    minor: number;
-    patch: number;
-  };
-  tags: {};
-  logoURI: string;
-  keywords: string[];
-  tokens: (
-    | {
+    name: string;
+    timestamp: string;
+    version: {
+        major: number;
+        minor: number;
+        patch: number;
+    };
+    tags: {};
+    logoURI: string;
+    keywords: string[];
+    tokens: ({
         name: string;
         address: string;
         symbol: string;
@@ -18,8 +17,7 @@ export declare const UNSUPPORTED_TOKENS: {
         chainId: number;
         logoURI: string;
         tags?: undefined;
-      }
-    | {
+    } | {
         chainId: number;
         address: string;
         name: string;
@@ -27,8 +25,7 @@ export declare const UNSUPPORTED_TOKENS: {
         decimals: number;
         logoURI?: undefined;
         tags?: undefined;
-      }
-    | {
+    } | {
         chainId: number;
         address: string;
         symbol: string;
@@ -36,6 +33,5 @@ export declare const UNSUPPORTED_TOKENS: {
         decimals: number;
         logoURI: string;
         tags: string[];
-      }
-  )[];
+    })[];
 };

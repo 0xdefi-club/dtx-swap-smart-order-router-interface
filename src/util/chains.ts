@@ -30,7 +30,7 @@ export const HAS_L1_FEE = [
   ChainId.OPTIMISTIC_KOVAN,
   ChainId.ARBITRUM_ONE,
   ChainId.ARBITRUM_RINKEBY,
-  ChainId.TAIKO,
+  // ChainId.TAIKO,
 ];
 
 export const ID_TO_CHAIN_ID = (id: number): ChainId => {

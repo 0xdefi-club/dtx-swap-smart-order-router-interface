@@ -10,18 +10,11 @@ import { V3SubgraphPool } from './v3/subgraph-provider';
  * @class URISubgraphProvider
  * @template TSubgraphPool
  */
-export declare class URISubgraphProvider<
-  TSubgraphPool extends V2SubgraphPool | V3SubgraphPool
-> {
-  private chainId;
-  private uri;
-  private timeout;
-  private retries;
-  constructor(
-    chainId: ChainId,
-    uri: string,
-    timeout?: number,
-    retries?: number
-  );
-  getPools(): Promise<TSubgraphPool[]>;
+export declare class URISubgraphProvider<TSubgraphPool extends V2SubgraphPool | V3SubgraphPool> {
+    private chainId;
+    private uri;
+    private timeout;
+    private retries;
+    constructor(chainId: ChainId, uri: string, timeout?: number, retries?: number);
+    getPools(): Promise<TSubgraphPool[]>;
 }

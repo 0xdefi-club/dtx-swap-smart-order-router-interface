@@ -10,6 +10,7 @@ import {
   WMATIC_POLYGON_MUMBAI,
 } from '../../providers/token-provider';
 import { ChainId, WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
+import { USDC_TAIKO } from './../../providers/token-provider';
 
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[];
@@ -41,7 +42,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.POLYGON]: [WMATIC_POLYGON],
     [ChainId.POLYGON_MUMBAI]: [WMATIC_POLYGON_MUMBAI],
     [ChainId.BASE_SEPOLIA]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA]],
-    [ChainId.TAIKO]: [WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO], TAIKO_TAIKO],
+    [ChainId.TAIKO]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO],
+      USDC_TAIKO,
+      TAIKO_TAIKO,
+    ],
   };
 };
 

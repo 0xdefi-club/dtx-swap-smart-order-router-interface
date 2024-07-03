@@ -38,7 +38,7 @@
     "@types/lodash": "^4.14.168",
     "@types/stats-lite": "^2.2.0",
     "@uniswap/default-token-list": "^2.0.0",
-    "@uniswap/router-sdk": "^1.0.5",
+    "@uniswap/router-sdk": "https://github.com/0xdefi-club/router-sdk-interface-1.1.0.git",
     "@uniswap/swap-router-contracts": "1.2.0",
     "@uniswap/token-lists": "^1.0.0-beta.25",
     "@uniswap/v2-sdk": "https://github.com/0xdefi-club/dtx-swap-v2-sdk-interface.git",

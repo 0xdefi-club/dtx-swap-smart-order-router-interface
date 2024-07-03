@@ -1,15 +1,9 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider } from '@ethersproject/providers';
 import { ChainId } from '../util';
-import {
-  CallMultipleFunctionsOnSameContractParams,
-  CallSameFunctionOnContractWithMultipleParams,
-  CallSameFunctionOnMultipleContractsParams,
-  IMulticallProvider,
-  Result,
-} from './multicall-provider';
+import { CallMultipleFunctionsOnSameContractParams, CallSameFunctionOnContractWithMultipleParams, CallSameFunctionOnMultipleContractsParams, IMulticallProvider, Result } from './multicall-provider';
 export declare type UniswapMulticallConfig = {
-  gasLimitPerCallOverride?: number;
+    gasLimitPerCallOverride?: number;
 };
 /**
  * The UniswapMulticall contract has added functionality for limiting the amount of gas
@@ -21,50 +15,24 @@ export declare type UniswapMulticallConfig = {
  * @class UniswapMulticallProvider
  */
 export declare class UniswapMulticallProvider extends IMulticallProvider<UniswapMulticallConfig> {
-  protected chainId: ChainId;
-  protected provider: BaseProvider;
-  protected gasLimitPerCall: number;
-  protected multicallAddressOverride: string;
-  private multicallContract;
-  constructor(
-    chainId: ChainId,
-    provider: BaseProvider,
-    gasLimitPerCall?: number,
-    multicallAddressOverride?: string
-  );
-  callSameFunctionOnMultipleContracts<
-    TFunctionParams extends any[] | undefined,
-    TReturn = any
-  >(
-    params: CallSameFunctionOnMultipleContractsParams<TFunctionParams>
-  ): Promise<{
-    blockNumber: BigNumber;
-    results: Result<TReturn>[];
-  }>;
-  callSameFunctionOnContractWithMultipleParams<
-    TFunctionParams extends any[] | undefined,
-    TReturn
-  >(
-    params: CallSameFunctionOnContractWithMultipleParams<
-      TFunctionParams,
-      UniswapMulticallConfig
-    >
-  ): Promise<{
-    blockNumber: BigNumber;
-    results: Result<TReturn>[];
-    approxGasUsedPerSuccessCall: number;
-  }>;
-  callMultipleFunctionsOnSameContract<
-    TFunctionParams extends any[] | undefined,
-    TReturn
-  >(
-    params: CallMultipleFunctionsOnSameContractParams<
-      TFunctionParams,
-      UniswapMulticallConfig
-    >
-  ): Promise<{
-    blockNumber: BigNumber;
-    results: Result<TReturn>[];
-    approxGasUsedPerSuccessCall: number;
-  }>;
+    protected chainId: ChainId;
+    protected provider: BaseProvider;
+    protected gasLimitPerCall: number;
+    protected multicallAddressOverride: string;
+    private multicallContract;
+    constructor(chainId: ChainId, provider: BaseProvider, gasLimitPerCall?: number, multicallAddressOverride?: string);
+    callSameFunctionOnMultipleContracts<TFunctionParams extends any[] | undefined, TReturn = any>(params: CallSameFunctionOnMultipleContractsParams<TFunctionParams>): Promise<{
+        blockNumber: BigNumber;
+        results: Result<TReturn>[];
+    }>;
+    callSameFunctionOnContractWithMultipleParams<TFunctionParams extends any[] | undefined, TReturn>(params: CallSameFunctionOnContractWithMultipleParams<TFunctionParams, UniswapMulticallConfig>): Promise<{
+        blockNumber: BigNumber;
+        results: Result<TReturn>[];
+        approxGasUsedPerSuccessCall: number;
+    }>;
+    callMultipleFunctionsOnSameContract<TFunctionParams extends any[] | undefined, TReturn>(params: CallMultipleFunctionsOnSameContractParams<TFunctionParams, UniswapMulticallConfig>): Promise<{
+        blockNumber: BigNumber;
+        results: Result<TReturn>[];
+        approxGasUsedPerSuccessCall: number;
+    }>;
 }
