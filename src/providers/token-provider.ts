@@ -395,7 +395,7 @@ export const USDC_TAIKO = new Token(
 export const TAIKO_TAIKO = new Token(
   ChainId.TAIKO,
   '0xA9d23408b9bA935c230493c40C73824Df71A0975',
-  6,
+  18,
   'TAIKO',
   'taiko'
 );

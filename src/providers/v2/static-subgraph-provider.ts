@@ -11,6 +11,7 @@ import {
   USDT_MAINNET,
   WBTC_MAINNET,
 } from '../token-provider';
+import { TAIKO_TAIKO, USDC_TAIKO } from './../token-provider';
 import { IV2SubgraphProvider, V2SubgraphPool } from './subgraph-provider';
 
 type ChainTokenList = {
@@ -41,7 +42,11 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.POLYGON]: [],
   [ChainId.POLYGON_MUMBAI]: [],
   [ChainId.BASE_SEPOLIA]: [],
-  [ChainId.TAIKO]: [],
+  [ChainId.TAIKO]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO],
+    USDC_TAIKO,
+    TAIKO_TAIKO,
+  ],
 };
 
 /**

@@ -25,6 +25,7 @@ const contractAddressByChain: { [chainId in ChainId]?: string } = {
   [ChainId.KOVAN]: UNISWAP_MULTICALL_ADDRESS,
   [ChainId.ROPSTEN]: UNISWAP_MULTICALL_ADDRESS,
   [ChainId.GÖRLI]: UNISWAP_MULTICALL_ADDRESS,
+  [ChainId.TAIKO]: UNISWAP_MULTICALL_ADDRESS,
 };
 
 /**
